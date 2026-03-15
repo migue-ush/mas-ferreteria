@@ -1,0 +1,935 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Más Ferretería - Tu ferretería en el fin del mundo</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'brand-blue': '#1E40AF',
+                        'brand-yellow': '#FDE047',
+                        'brand-white': '#FFFFFF',
+                        'slate-gray': '#1C2127',
+                        'weathered-orange': '#D4622A',
+                        'cold-white': '#F0EDE8',
+                        'light-gray': '#E8E6E3',
+                        'medium-gray': '#6C757D',
+                    },
+                    fontFamily: {
+                        'bebas': ['Bebas Neue', 'cursive'],
+                        'inter': ['Inter', 'sans-serif'],
+                    },
+                    animation: {
+                        'fade-in-up': 'fadeInUp 0.6s ease-out',
+                        'stagger': 'stagger 0.6s ease-out',
+                    },
+                    keyframes: {
+                        fadeInUp: {
+                            '0%': { opacity: '0', transform: 'translateY(30px)' },
+                            '100%': { opacity: '1', transform: 'translateY(0)' },
+                        },
+                        stagger: {
+                            '0%': { opacity: '0', transform: 'translateY(30px)' },
+                            '100%': { opacity: '1', transform: 'translateY(0)' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .hero-pattern {
+            background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800"><defs><pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse"><path d="M 40 0 L 0 0 0 40" fill="none" stroke="rgba(212,98,42,0.1)" stroke-width="1"/></pattern></defs><rect width="100%" height="100%" fill="url(%23grid)"/></svg>');
+        }
+        
+        .fade-in-up {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.6s ease-out;
+        }
+        
+        .fade-in-up.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .nav-links.active {
+            display: flex;
+        }
+        
+        @media (min-width: 769px) {
+            .nav-links {
+                display: flex !important;
+            }
+        }
+    </style>
+</head>
+<body class="font-inter bg-cold-white text-slate-gray">
+    <header class="bg-brand-blue fixed w-full top-0 z-50 shadow-md">
+        <nav class="py-4">
+            <div class="container mx-auto px-5">
+                <div class="flex justify-between items-center">
+                    <a href="#inicio" class="flex items-center space-x-3">
+                        <img src="img/logo.webp" alt="Más Ferretería" class="h-14 w-auto rounded-full">
+                        
+                    </a>
+                    <ul class="nav-links hidden md:flex gap-8 flex-1 justify-center" id="navLinks">
+                        <li><a href="#inicio" class="text-brand-white font-medium hover:text-brand-yellow transition-colors">Inicio</a></li>
+                        <li><a href="#nosotros" class="text-brand-white font-medium hover:text-brand-yellow transition-colors">Nosotros</a></li>
+                        <li><a href="#categorias" class="text-brand-white font-medium hover:text-brand-yellow transition-colors">Categorías</a></li>
+                        <li><a href="#ofertas" class="text-brand-white font-medium hover:text-brand-yellow transition-colors">Ofertas</a></li>
+                        <li><a href="#por-que-elegirnos" class="text-brand-white font-medium hover:text-brand-yellow transition-colors">Por Qué Elegirnos</a></li>
+                        <li><a href="#contacto" class="text-brand-white font-medium hover:text-brand-yellow transition-colors">Contacto</a></li>
+                    </ul>
+                    <button class="mobile-menu md:hidden text-brand-white text-2xl" id="mobileMenu">☰</button>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section id="inicio" class="hero min-h-screen flex items-center justify-center text-center text-brand-white relative overflow-hidden" style="background-image: linear-gradient(rgba(30, 64, 175, 0.85), rgba(30, 64, 175, 0.95)), url('img/hero-banner.webp'); background-size: cover; background-position: center; background-attachment: fixed;">
+            <div class="hero-content relative z-10 px-5 animate-fade-in-up">
+                <div class="mb-8">
+                    <img src="img/logo.webp" alt="Más Ferretería" class="h-96 w-auto mx-auto mb-6 drop-shadow-lg rounded-full">
+                </div>
+                
+                <p class="text-[clamp(1.2rem,3vw,1.8rem)] mb-8 font-light drop-shadow-lg">Tu ferretería en el fin del mundo</p>
+                <a href="#categorias" class="cta-button inline-block bg-brand-yellow text-brand-blue px-8 py-4 font-semibold uppercase tracking-wide rounded hover:bg-yellow-300 transform hover:-translate-y-1 transition-all shadow-lg hover:shadow-xl">Ver Productos</a>
+            </div>
+        </section>
+
+        <section id="nosotros" class="bg-cold-white py-20">
+            <div class="container mx-auto px-5">
+                <h2 class="font-bebas text-[clamp(2.5rem,5vw,3.5rem)] text-slate-gray text-center mb-12 relative fade-in-up">
+                    Nosotros
+                    <span class="block w-20 h-1 bg-brand-yellow mx-auto mt-4"></span>
+                </h2>
+                <div class="about-content max-w-3xl mx-auto text-center text-lg leading-relaxed text-medium-gray fade-in-up">
+                    <p>En Más Ferretería, nos enorgullece servir a los profesionales de la construcción y a los clientes de bricolaje en Ushuaia con herramientas y suministros de la más alta calidad. Desde nuestra ubicación en la ciudad más austral del mundo, entendemos las necesidades únicas que impone el clima patagónico y ofrecemos productos diseñados para resistir las condiciones más extremas. Nuestra misión es ser tu aliado confiable en cada proyecto, grande o pequeño.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="categorias" class="bg-light-gray py-20">
+            <div class="container mx-auto px-5">
+                <h2 class="font-bebas text-[clamp(2.5rem,5vw,3.5rem)] text-slate-gray text-center mb-12 relative fade-in-up">
+                    Categorías de Productos
+                    <span class="block w-20 h-1 bg-brand-yellow mx-auto mt-4"></span>
+                </h2>
+                <div class="categories-grid grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mt-12">
+                    <div class="category-card bg-cold-white p-8 rounded-lg text-center transform hover:-translate-y-2 transition-all border-2 border-transparent hover:border-brand-blue shadow-lg hover:shadow-xl fade-in-up">
+                        <div class="category-icon text-5xl mb-4 text-brand-blue">🔧</div>
+                        <h3 class="font-bebas text-2xl mb-2 text-slate-gray">Herramientas Manuales</h3>
+                        <p class="text-medium-gray text-sm">Destornilladores, llaves, martillos y más herramientas esenciales para trabajo preciso.</p>
+                    </div>
+                    <div class="category-card bg-cold-white p-8 rounded-lg text-center transform hover:-translate-y-2 transition-all border-2 border-transparent hover:border-brand-blue shadow-lg hover:shadow-xl fade-in-up">
+                        <div class="category-icon text-5xl mb-4 text-brand-blue">⚡</div>
+                        <h3 class="font-bebas text-2xl mb-2 text-slate-gray">Herramientas Eléctricas</h3>
+                        <p class="text-medium-gray text-sm">Taladros, sierras, lijadoras y herramientas eléctricas de alto rendimiento.</p>
+                    </div>
+                    <div class="category-card bg-cold-white p-8 rounded-lg text-center transform hover:-translate-y-2 transition-all border-2 border-transparent hover:border-brand-blue shadow-lg hover:shadow-xl fade-in-up">
+                        <div class="category-icon text-5xl mb-4 text-brand-blue">🔩</div>
+                        <h3 class="font-bebas text-2xl mb-2 text-slate-gray">Fijaciones y Hardware</h3>
+                        <p class="text-medium-gray text-sm">Tornillos, clavos, anclajes y todo tipo de elementos de fijación.</p>
+                    </div>
+                    <div class="category-card bg-cold-white p-8 rounded-lg text-center transform hover:-translate-y-2 transition-all border-2 border-transparent hover:border-brand-blue shadow-lg hover:shadow-xl fade-in-up">
+                        <div class="category-icon text-5xl mb-4 text-brand-blue">🚰</div>
+                        <h3 class="font-bebas text-2xl mb-2 text-slate-gray">Plomería</h3>
+                        <p class="text-medium-gray text-sm">Tuberías, griferías, conexiones y accesorios para instalaciones de agua.</p>
+                    </div>
+                    <div class="category-card bg-cold-white p-8 rounded-lg text-center transform hover:-translate-y-2 transition-all border-2 border-transparent hover:border-brand-blue shadow-lg hover:shadow-xl fade-in-up">
+                        <div class="category-icon text-5xl mb-4 text-brand-blue">💡</div>
+                        <h3 class="font-bebas text-2xl mb-2 text-slate-gray">Electricidad</h3>
+                        <p class="text-medium-gray text-sm">Cables, interruptores, tomacorrientes y materiales eléctricos seguros.</p>
+                    </div>
+                    <div class="category-card bg-cold-white p-8 rounded-lg text-center transform hover:-translate-y-2 transition-all border-2 border-transparent hover:border-brand-blue shadow-lg hover:shadow-xl fade-in-up">
+                        <div class="category-icon text-5xl mb-4 text-brand-blue">🎨</div>
+                        <h3 class="font-bebas text-2xl mb-2 text-slate-gray">Pinturas y Recubrimientos</h3>
+                        <p class="text-medium-gray text-sm">Pinturas, barnices, brochas y rodillos para acabados profesionales.</p>
+                    </div>
+                    <div class="category-card bg-cold-white p-8 rounded-lg text-center transform hover:-translate-y-2 transition-all border-2 border-transparent hover:border-brand-blue shadow-lg hover:shadow-xl fade-in-up">
+                        <div class="category-icon text-5xl mb-4 text-brand-blue">🪖</div>
+                        <h3 class="font-bebas text-2xl mb-2 text-slate-gray">Equipos de Seguridad</h3>
+                        <p class="text-medium-gray text-sm">Cascos, guantes, gafas de protección y EPP para trabajo seguro.</p>
+                    </div>
+                    <div class="category-card bg-cold-white p-8 rounded-lg text-center transform hover:-translate-y-2 transition-all border-2 border-transparent hover:border-brand-blue shadow-lg hover:shadow-xl fade-in-up">
+                        <div class="category-icon text-5xl mb-4 text-brand-blue">🏗️</div>
+                        <h3 class="font-bebas text-2xl mb-2 text-slate-gray">Materiales de Construcción</h3>
+                        <p class="text-medium-gray text-sm">Cemento, arena, ladrillos y materiales estructurales de calidad.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="por-que-elegirnos" class="bg-cold-white py-20">
+            <div class="container mx-auto px-5">
+                <h2 class="font-bebas text-[clamp(2.5rem,5vw,3.5rem)] text-slate-gray text-center mb-12 relative fade-in-up">
+                    Por Qué Elegirnos
+                    <span class="block w-20 h-1 bg-brand-yellow mx-auto mt-4"></span>
+                </h2>
+                <div class="highlights-grid grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mt-12">
+                    <div class="highlight-item text-center p-8 fade-in-up">
+                        <div class="highlight-icon text-5xl text-brand-blue mb-4">🏔️</div>
+                        <h3 class="font-bebas text-3xl mb-4 text-slate-gray">Experiencia Local</h3>
+                        <p class="text-medium-gray leading-relaxed">Conocemos profundamente las condiciones extremas de la Patagonia y recomendamos productos adecuados para este entorno único.</p>
+                    </div>
+                    <div class="highlight-item text-center p-8 fade-in-up">
+                        <div class="highlight-icon text-5xl text-brand-blue mb-4">📦</div>
+                        <h3 class="font-bebas text-3xl mb-4 text-slate-gray">Inventario Amplio</h3>
+                        <p class="text-medium-gray leading-relaxed">Mantenemos un stock completo de herramientas y materiales para asegurarnos de tener siempre lo que necesitas.</p>
+                    </div>
+                    <div class="highlight-item text-center p-8 fade-in-up">
+                        <div class="highlight-icon text-5xl text-brand-blue mb-4">⚡</div>
+                        <h3 class="font-bebas text-3xl mb-4 text-slate-gray">Servicio Rápido</h3>
+                        <p class="text-medium-gray leading-relaxed">Atención eficiente y personalizada para que encuentres rápidamente lo que buscas y puedas continuar con tu trabajo.</p>
+                    </div>
+                    <div class="highlight-item text-center p-8 fade-in-up">
+                        <div class="highlight-icon text-5xl text-brand-blue mb-4">❄️</div>
+                        <h3 class="font-bebas text-3xl mb-4 text-slate-gray">Conocimiento del Clima</h3>
+                        <p class="text-medium-gray leading-relaxed">Asesoramiento experto sobre materiales adecuados para las condiciones climáticas extremas de Ushuaia.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="ofertas" class="bg-gradient-to-br from-brand-yellow to-yellow-300 py-20">
+            <div class="container mx-auto px-5">
+                <h2 class="font-bebas text-[clamp(2.5rem,5vw,3.5rem)] text-brand-blue text-center mb-4 relative fade-in-up">
+                    Ofertas Especiales
+                    <span class="block w-20 h-1 bg-brand-blue mx-auto mt-4"></span>
+                </h2>
+                <p class="text-center text-brand-blue text-lg mb-12 fade-in-up">Aprovecha nuestras mejores promociones de la semana</p>
+                
+                <div class="offers-grid grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-12">
+                    <div class="offer-card bg-brand-white rounded-xl shadow-lg hover:shadow-2xl transform hover:-translate-y-2 transition-all duration-300 overflow-hidden fade-in-up">
+                        <div class="relative">
+                            <div class="bg-brand-blue h-48 flex items-center justify-center">
+                                <span class="text-6xl">🔧</span>
+                            </div>
+                            <div class="absolute top-4 right-4 bg-red-500 text-white px-3 py-1 rounded-full font-bold text-sm">
+                                -30%
+                            </div>
+                        </div>
+                        <div class="p-6">
+                            <h3 class="font-bebas text-2xl text-brand-blue mb-2">Kit de Herramientas Profesional</h3>
+                            <div class="flex items-center justify-between mb-4">
+                                <div>
+                                    <span class="text-gray-400 line-through text-sm">$45.000</span>
+                                    <span class="text-brand-blue font-bold text-xl ml-2">$31.500</span>
+                                </div>
+                                <span class="bg-green-100 text-green-800 px-2 py-1 rounded-full text-xs font-semibold">
+                                    Stock limitado
+                                </span>
+                            </div>
+                            <p class="text-gray-600 text-sm mb-4">Juego completo de 40 piezas incluye llaves, destornilladores y maletín</p>
+                            <button class="w-full bg-brand-blue text-white px-4 py-2 rounded-lg hover:bg-blue-800 transition-colors font-semibold">
+                                Ver Detalles
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="offer-card bg-brand-white rounded-xl shadow-lg hover:shadow-2xl transform hover:-translate-y-2 transition-all duration-300 overflow-hidden fade-in-up">
+                        <div class="relative">
+                            <div class="bg-brand-blue h-48 flex items-center justify-center">
+                                <span class="text-6xl">⚡</span>
+                            </div>
+                            <div class="absolute top-4 right-4 bg-red-500 text-white px-3 py-1 rounded-full font-bold text-sm">
+                                -25%
+                            </div>
+                        </div>
+                        <div class="p-6">
+                            <h3 class="font-bebas text-2xl text-brand-blue mb-2">Taladro Inalámbrico 18V</h3>
+                            <div class="flex items-center justify-between mb-4">
+                                <div>
+                                    <span class="text-gray-400 line-through text-sm">$28.000</span>
+                                    <span class="text-brand-blue font-bold text-xl ml-2">$21.000</span>
+                                </div>
+                                <span class="bg-orange-100 text-orange-800 px-2 py-1 rounded-full text-xs font-semibold">
+                                    Más vendido
+                                </span>
+                            </div>
+                            <p class="text-gray-600 text-sm mb-4">Batería de litio, 2 velocidades, maletín incluido</p>
+                            <button class="w-full bg-brand-blue text-white px-4 py-2 rounded-lg hover:bg-blue-800 transition-colors font-semibold">
+                                Ver Detalles
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="offer-card bg-brand-white rounded-xl shadow-lg hover:shadow-2xl transform hover:-translate-y-2 transition-all duration-300 overflow-hidden fade-in-up">
+                        <div class="relative">
+                            <div class="bg-brand-blue h-48 flex items-center justify-center">
+                                <span class="text-6xl">🪖</span>
+                            </div>
+                            <div class="absolute top-4 right-4 bg-red-500 text-white px-3 py-1 rounded-full font-bold text-sm">
+                                -40%
+                            </div>
+                        </div>
+                        <div class="p-6">
+                            <h3 class="font-bebas text-2xl text-brand-blue mb-2">Equipo de Seguridad Premium</h3>
+                            <div class="flex items-center justify-between mb-4">
+                                <div>
+                                    <span class="text-gray-400 line-through text-sm">$15.000</span>
+                                    <span class="text-brand-blue font-bold text-xl ml-2">$9.000</span>
+                                </div>
+                                <span class="bg-purple-100 text-purple-800 px-2 py-1 rounded-full text-xs font-semibold">
+                                    Nuevo
+                                </span>
+                            </div>
+                            <p class="text-gray-600 text-sm mb-4">Casco, guantes, gafas y arnés de alta calidad</p>
+                            <button class="w-full bg-brand-blue text-white px-4 py-2 rounded-lg hover:bg-blue-800 transition-colors font-semibold">
+                                Ver Detalles
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="offer-card bg-brand-white rounded-xl shadow-lg hover:shadow-2xl transform hover:-translate-y-2 transition-all duration-300 overflow-hidden fade-in-up">
+                        <div class="relative">
+                            <div class="bg-brand-blue h-48 flex items-center justify-center">
+                                <span class="text-6xl">🏗️</span>
+                            </div>
+                            <div class="absolute top-4 right-4 bg-red-500 text-white px-3 py-1 rounded-full font-bold text-sm">
+                                -20%
+                            </div>
+                        </div>
+                        <div class="p-6">
+                            <h3 class="font-bebas text-2xl text-brand-blue mb-2">Cemento Portland 50kg</h3>
+                            <div class="flex items-center justify-between mb-4">
+                                <div>
+                                    <span class="text-gray-400 line-through text-sm">$3.500</span>
+                                    <span class="text-brand-blue font-bold text-xl ml-2">$2.800</span>
+                                </div>
+                                <span class="bg-blue-100 text-blue-800 px-2 py-1 rounded-full text-xs font-semibold">
+                                    3x2
+                                </span>
+                            </div>
+                            <p class="text-gray-600 text-sm mb-4">Alta resistencia, ideal para construcción en climas fríos</p>
+                            <button class="w-full bg-brand-blue text-white px-4 py-2 rounded-lg hover:bg-blue-800 transition-colors font-semibold">
+                                Ver Detalles
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="offer-card bg-brand-white rounded-xl shadow-lg hover:shadow-2xl transform hover:-translate-y-2 transition-all duration-300 overflow-hidden fade-in-up">
+                        <div class="relative">
+                            <div class="bg-brand-blue h-48 flex items-center justify-center">
+                                <span class="text-6xl">🎨</span>
+                            </div>
+                            <div class="absolute top-4 right-4 bg-red-500 text-white px-3 py-1 rounded-full font-bold text-sm">
+                                -35%
+                            </div>
+                        </div>
+                        <div class="p-6">
+                            <h3 class="font-bebas text-2xl text-brand-blue mb-2">Pintura Exterior Premium</h3>
+                            <div class="flex items-center justify-between mb-4">
+                                <div>
+                                    <span class="text-gray-400 line-through text-sm">$12.000</span>
+                                    <span class="text-brand-blue font-bold text-xl ml-2">$7.800</span>
+                                </div>
+                                <span class="bg-green-100 text-green-800 px-2 py-1 rounded-full text-xs font-semibold">
+                                    Eco-friendly
+                                </span>
+                            </div>
+                            <p class="text-gray-600 text-sm mb-4">20L, alta durabilidad, protección UV, colores variados</p>
+                            <button class="w-full bg-brand-blue text-white px-4 py-2 rounded-lg hover:bg-blue-800 transition-colors font-semibold">
+                                Ver Detalles
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="offer-card bg-brand-white rounded-xl shadow-lg hover:shadow-2xl transform hover:-translate-y-2 transition-all duration-300 overflow-hidden fade-in-up">
+                        <div class="relative">
+                            <div class="bg-brand-blue h-48 flex items-center justify-center">
+                                <span class="text-6xl">🚰</span>
+                            </div>
+                            <div class="absolute top-4 right-4 bg-red-500 text-white px-3 py-1 rounded-full font-bold text-sm">
+                                -15%
+                            </div>
+                        </div>
+                        <div class="p-6">
+                            <h3 class="font-bebas text-2xl text-brand-blue mb-2">Kit Plomería Completo</h3>
+                            <div class="flex items-center justify-between mb-4">
+                                <div>
+                                    <span class="text-gray-400 line-through text-sm">$18.000</span>
+                                    <span class="text-brand-blue font-bold text-xl ml-2">$15.300</span>
+                                </div>
+                                <span class="bg-red-100 text-red-800 px-2 py-1 rounded-full text-xs font-semibold">
+                                    Hot Deal
+                                </span>
+                            </div>
+                            <p class="text-gray-600 text-sm mb-4">Válvulas, conexiones, herramientas y manual de instalación</p>
+                            <button class="w-full bg-brand-blue text-white px-4 py-2 rounded-lg hover:bg-blue-800 transition-colors font-semibold">
+                                Ver Detalles
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="text-center mt-12 fade-in-up">
+                    <div class="bg-brand-blue text-brand-white p-6 rounded-xl inline-block">
+                        <h3 class="font-bebas text-2xl mb-2">¿No encuentras lo que buscas?</h3>
+                        <p class="mb-4">Contáctanos y te preparamos una oferta personalizada</p>
+                        <a href="#contacto" class="bg-brand-yellow text-brand-blue px-6 py-3 rounded-lg font-semibold hover:bg-yellow-300 transition-colors">
+                            Solicitar Cotización
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Offer Modal -->
+        <div id="offerModal" class="fixed inset-0 bg-black bg-opacity-50 z-50 hidden flex items-center justify-center p-4">
+            <div class="bg-white rounded-xl max-w-2xl w-full max-h-[90vh] overflow-y-auto transform transition-all duration-300 scale-95 opacity-0" id="modalContent">
+                <div class="sticky top-0 bg-white border-b border-gray-200 p-4 flex justify-between items-center">
+                    <h3 class="font-bebas text-2xl text-brand-blue" id="modalTitle">Detalles del Producto</h3>
+                    <button onclick="closeOfferModal()" class="text-gray-500 hover:text-gray-700 transition-colors">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                        </svg>
+                    </button>
+                </div>
+                
+                <div class="p-6">
+                    <div class="bg-brand-blue h-64 flex items-center justify-center rounded-lg mb-6">
+                        <span class="text-8xl" id="modalIcon">🔧</span>
+                    </div>
+                    
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+                        <div>
+                            <h4 class="font-semibold text-gray-800 mb-2">Descripción</h4>
+                            <p class="text-gray-600" id="modalDescription">Descripción detallada del producto</p>
+                        </div>
+                        <div>
+                            <h4 class="font-semibold text-gray-800 mb-2">Características</h4>
+                            <ul class="text-gray-600 space-y-1" id="modalFeatures">
+                                <li>• Característica 1</li>
+                                <li>• Característica 2</li>
+                                <li>• Característica 3</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-gray-50 rounded-lg p-4 mb-6">
+                        <div class="flex justify-between items-center mb-4">
+                            <div>
+                                <span class="text-gray-400 line-through text-lg" id="modalOriginalPrice">$45.000</span>
+                                <span class="text-brand-blue font-bold text-2xl ml-2" id="modalDiscountPrice">$31.500</span>
+                                <span class="bg-red-500 text-white px-2 py-1 rounded-full text-sm font-bold ml-2" id="modalDiscount">-30%</span>
+                            </div>
+                            <span class="bg-green-100 text-green-800 px-3 py-1 rounded-full text-sm font-semibold" id="modalStock">
+                                Stock limitado
+                            </span>
+                        </div>
+                        
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700 mb-1">Cantidad</label>
+                                <input type="number" min="1" value="1" class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-brand-blue focus:border-transparent">
+                            </div>
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700 mb-1">Método de pago</label>
+                                <select class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-brand-blue focus:border-transparent">
+                                    <option>Efectivo</option>
+                                    <option>Tarjeta de crédito</option>
+                                    <option>Transferencia bancaria</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="flex flex-col sm:flex-row gap-4">
+                        <button onclick="addToCart()" class="flex-1 bg-brand-blue text-white px-6 py-3 rounded-lg hover:bg-blue-800 transition-colors font-semibold">
+                            Agregar al Carrito
+                        </button>
+                        <button onclick="buyNow()" class="flex-1 bg-brand-yellow text-brand-blue px-6 py-3 rounded-lg hover:bg-yellow-300 transition-colors font-semibold">
+                            Comprar Ahora
+                        </button>
+                        <a href="https://wa.me/5492901123456?text=Hola%20Más%20Ferretería,%20quiero%20consultar%20por%20este%20producto" 
+                           target="_blank" 
+                           class="bg-green-500 text-white px-6 py-3 rounded-lg hover:bg-green-600 transition-colors font-semibold flex items-center justify-center">
+                            <svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.149-.67.149-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414-.074-.123-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.024 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/>
+                            </svg>
+                            Consultar
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <section id="contacto" class="bg-brand-blue py-20 text-brand-white">
+            <div class="container mx-auto px-5">
+                <h2 class="font-bebas text-[clamp(2.5rem,5vw,3.5rem)] text-brand-white text-center mb-12 relative fade-in-up">
+                    Contacto y Ubicación
+                    <span class="block w-20 h-1 bg-brand-yellow mx-auto mt-4"></span>
+                </h2>
+                <div class="contact-content grid grid-cols-1 lg:grid-cols-2 gap-12 mt-12">
+                    <div class="contact-info fade-in-up">
+                        <h3 class="font-bebas text-3xl mb-4 text-brand-yellow">Información de Contacto</h3>
+                        <p class="mb-2"><strong>Dirección:</strong> Magallanes 889, Ushuaia, Tierra del Fuego, Argentina</p>
+                        <p class="mb-2"><strong>Teléfono:</strong> +54 2901 123456</p>
+                        <p class="mb-2"><strong>Email:</strong> info@masferreteria.com.ar</p>
+                        <p class="mb-2"><strong>Horario:</strong></p>
+                        <p class="mb-1">Lunes a Viernes: 8:00 - 18:00</p>
+                        <p class="mb-1">Sábados: 9:00 - 13:00</p>
+                        <p>Domingos: Cerrado</p>
+                    </div>
+                    <div class="contact-form fade-in-up">
+                        <h3 class="font-bebas text-3xl mb-4 text-brand-yellow">Envíanos un Mensaje</h3>
+                        <form id="contactForm" class="space-y-4">
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                <div>
+                                    <label for="nombre" class="block text-sm font-medium mb-2">Nombre *</label>
+                                    <input type="text" id="nombre" name="nombre" required class="w-full px-4 py-2 rounded-lg bg-blue-800 border border-blue-600 focus:border-brand-yellow focus:outline-none transition-colors" placeholder="Tu nombre">
+                                </div>
+                                <div>
+                                    <label for="email" class="block text-sm font-medium mb-2">Email *</label>
+                                    <input type="email" id="email" name="email" required class="w-full px-4 py-2 rounded-lg bg-blue-800 border border-blue-600 focus:border-brand-yellow focus:outline-none transition-colors" placeholder="tu@email.com">
+                                </div>
+                            </div>
+                            <div>
+                                <label for="telefono" class="block text-sm font-medium mb-2">Teléfono</label>
+                                <input type="tel" id="telefono" name="telefono" class="w-full px-4 py-2 rounded-lg bg-blue-800 border border-blue-600 focus:border-brand-yellow focus:outline-none transition-colors" placeholder="+54 9 XXX XXX XXX">
+                            </div>
+                            <div>
+                                <label for="asunto" class="block text-sm font-medium mb-2">Asunto *</label>
+                                <select id="asunto" name="asunto" required class="w-full px-4 py-2 rounded-lg bg-blue-800 border border-blue-600 focus:border-brand-yellow focus:outline-none transition-colors">
+                                    <option value="">Selecciona un motivo</option>
+                                    <option value="consulta">Consulta general</option>
+                                    <option value="producto">Información de producto</option>
+                                    <option value="presupuesto">Solicitud de presupuesto</option>
+                                    <option value="servicio">Servicio técnico</option>
+                                    <option value="otro">Otro</option>
+                                </select>
+                            </div>
+                            <div>
+                                <label for="mensaje" class="block text-sm font-medium mb-2">Mensaje *</label>
+                                <textarea id="mensaje" name="mensaje" rows="4" required class="w-full px-4 py-2 rounded-lg bg-blue-800 border border-blue-600 focus:border-brand-yellow focus:outline-none transition-colors resize-none" placeholder="Cuéntanos cómo podemos ayudarte..."></textarea>
+                            </div>
+                            <button type="submit" class="w-full bg-brand-yellow text-brand-blue px-6 py-3 font-semibold uppercase tracking-wide rounded hover:bg-yellow-300 transform hover:-translate-y-1 transition-all shadow-lg hover:shadow-xl">
+                                Enviar Mensaje
+                            </button>
+                        </form>
+                        <div id="formMessage" class="mt-4 p-4 rounded-lg hidden"></div>
+                    </div>
+                </div>
+                <div class="mt-12 fade-in-up">
+                    <h3 class="font-bebas text-3xl mb-4 text-brand-yellow text-center">Ubicación</h3>
+                    <div class="map-container h-96 rounded-lg overflow-hidden shadow-lg">
+                        <iframe 
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1189.3711271713796!2d-68.31356828434534!3d-54.8043550818948!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xbc4c23211b02eba5%3A0xf1c6eeb4b834ef26!2sMagallanes%20889%2C%20V9410%20Ushuaia%2C%20Tierra%20del%20Fuego%2C%20Argentina!5e0!3m2!1ses-419!2sus!4v1773616296055!5m2!1ses-419!2sus"
+                            width="100%" 
+                            height="100%" 
+                            style="border:0;" 
+                            allowfullscreen="" 
+                            loading="lazy" 
+                            referrerpolicy="no-referrer-when-downgrade"
+                            class="w-full h-full">
+                        </iframe>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="bg-gray-900 text-cold-white py-12">
+        <div class="container mx-auto px-5">
+            <div class="footer-content grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-8">
+                <div class="footer-section">
+                    <h3 class="font-bebas text-2xl mb-4 text-brand-yellow">Más Ferretería</h3>
+                    <p class="mb-4">Tu ferretería de confianza en el fin del mundo, sirviendo a Ushuaia con calidad y experiencia.</p>
+                    <div class="social-icons flex gap-4">
+                        <a href="https://www.facebook.com/p/M%C3%A1s-Ferreter%C3%ADa-100076506874962/" class="social-icon inline-flex items-center justify-center w-10 h-10 bg-brand-yellow text-brand-blue rounded-full hover:bg-yellow-300 transform hover:-translate-y-1 transition-all">
+                            <article>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-brand-facebook"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M7 10v4h3v7h4v-7h3l1 -4h-4v-2a1 1 0 0 1 1 -1h3v-4h-3a5 5 0 0 0 -5 5v2h-3" /></svg>
+                            </article>
+                        </a>
+                        <a href="https://www.instagram.com/mas.ferreteria/" class="social-icon inline-flex items-center justify-center w-10 h-10 bg-brand-yellow text-brand-blue rounded-full hover:bg-yellow-300 transform hover:-translate-y-1 transition-all">
+                            <article>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-brand-instagram"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M4 8a4 4 0 0 1 4 -4h8a4 4 0 0 1 4 4v8a4 4 0 0 1 -4 4h-8a4 4 0 0 1 -4 -4l0 -8" /><path d="M9 12a3 3 0 1 0 6 0a3 3 0 0 0 -6 0" /><path d="M16.5 7.5v.01" /></svg>
+                            </article>
+                        </a>
+                        <a href="#" class="social-icon inline-flex items-center justify-center w-10 h-10 bg-brand-yellow text-brand-blue rounded-full hover:bg-yellow-300 transform hover:-translate-y-1 transition-all">in</a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h3 class="font-bebas text-2xl mb-4 text-brand-yellow">Enlaces Rápidos</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#inicio" class="hover:text-brand-yellow transition-colors">Inicio</a></li>
+                        <li><a href="#nosotros" class="hover:text-brand-yellow transition-colors">Nosotros</a></li>
+                        <li><a href="#categorias" class="hover:text-brand-yellow transition-colors">Categorías</a></li>
+                        <li><a href="#por-que-elegirnos" class="hover:text-brand-yellow transition-colors">Por Qué Elegirnos</a></li>
+                        <li><a href="#contacto" class="hover:text-brand-yellow transition-colors">Contacto</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3 class="font-bebas text-2xl mb-4 text-brand-yellow">Categorías</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#categorias" class="hover:text-brand-yellow transition-colors">Herramientas Manuales</a></li>
+                        <li><a href="#categorias" class="hover:text-brand-yellow transition-colors">Herramientas Eléctricas</a></li>
+                        <li><a href="#categorias" class="hover:text-brand-yellow transition-colors">Fijaciones y Hardware</a></li>
+                        <li><a href="#categorias" class="hover:text-brand-yellow transition-colors">Plomería</a></li>
+                        <li><a href="#categorias" class="hover:text-brand-yellow transition-colors">Electricidad</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3 class="font-bebas text-2xl mb-4 text-brand-yellow">Contacto</h3>
+                    <ul class="space-y-2">
+                        <li>Magallanes 889, Ushuaia</li>
+                        <li>+54 2901 123456</li>
+                        <li>info@masferreteria.com.ar</li>
+                        <li>Lunes a Viernes: 8:00 - 18:00</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom text-center pt-8 border-t border-gray-800 text-medium-gray">
+                <p>&copy; 2026 Más Ferretería. Todos los derechos reservados. Ushuaia, Tierra del Fuego, Argentina.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Floating WhatsApp Button -->
+    <a href="https://wa.me/5492901123456?text=Hola%20Más%20Ferretería,%20quiero%20hacer%20una%20consulta" 
+       target="_blank" 
+       class="fixed bottom-6 right-6 bg-green-500 text-white p-4 rounded-full shadow-lg hover:bg-green-600 transform hover:scale-110 transition-all duration-300 z-50 flex items-center justify-center group">
+        <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.149-.67.149-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414-.074-.123-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.024 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/>
+        </svg>
+        <span class="absolute right-full mr-3 top-1/2 transform -translate-y-1/2 bg-gray-800 text-white px-3 py-1 rounded-lg text-sm whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity">
+            ¡Contáctanos por WhatsApp!
+        </span>
+    </a>
+
+    <script>
+        // Mobile menu toggle
+        const mobileMenu = document.getElementById('mobileMenu');
+        const navLinks = document.getElementById('navLinks');
+
+        mobileMenu.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+            mobileMenu.textContent = navLinks.classList.contains('active') ? '✕' : '☰';
+        });
+
+        // Close mobile menu when clicking on a link
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('active');
+                mobileMenu.textContent = '☰';
+            });
+        });
+
+        // Contact form functionality
+        const contactForm = document.getElementById('contactForm');
+        const formMessage = document.getElementById('formMessage');
+
+        if (contactForm) {
+            contactForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                
+                // Get form data
+                const formData = new FormData(contactForm);
+                const data = Object.fromEntries(formData);
+                
+                // Basic validation
+                if (!data.nombre || !data.email || !data.asunto || !data.mensaje) {
+                    showFormMessage('Por favor, completa todos los campos obligatorios.', 'error');
+                    return;
+                }
+                
+                // Email validation
+                const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                if (!emailRegex.test(data.email)) {
+                    showFormMessage('Por favor, ingresa un email válido.', 'error');
+                    return;
+                }
+                
+                // Simulate form submission (in production, this would send to a server)
+                showFormMessage('¡Mensaje enviado con éxito! Nos pondremos en contacto contigo pronto.', 'success');
+                contactForm.reset();
+                
+                // Log form data (for demonstration)
+                console.log('Form data submitted:', data);
+            });
+        }
+
+        function showFormMessage(message, type) {
+            if (formMessage) {
+                formMessage.textContent = message;
+                formMessage.classList.remove('hidden', 'bg-green-600', 'bg-red-600', 'text-white');
+                
+                if (type === 'success') {
+                    formMessage.classList.add('bg-green-600', 'text-white');
+                } else if (type === 'error') {
+                    formMessage.classList.add('bg-red-600', 'text-white');
+                }
+                
+                // Auto-hide message after 5 seconds
+                setTimeout(() => {
+                    formMessage.classList.add('hidden');
+                }, 5000);
+            }
+        }
+
+        // Offer Modal functionality
+        const offerModal = document.getElementById('offerModal');
+        const modalContent = document.getElementById('modalContent');
+        
+        // Product data for modal
+        const products = {
+            'kit-herramientas': {
+                title: 'Kit de Herramientas Profesional',
+                icon: '🔧',
+                description: 'Juego completo de 40 piezas fabricadas en acero de alta calidad. Incluye llaves ajustables, destornilladores de precisión, pinzas, alicates y maletín de transporte resistente. Ideal para profesionales y aficionados al bricolaje.',
+                features: [
+                    '• 40 piezas de acero cromado',
+                    '• Maletín de aluminio con cerradura',
+                    '• Garantía de 2 años',
+                    '• Certificación ISO 9001',
+                    '• Ergonómico y antideslizante'
+                ],
+                originalPrice: '$45.000',
+                discountPrice: '$31.500',
+                discount: '-30%',
+                stock: 'Stock limitado'
+            },
+            'taladro-inalambrico': {
+                title: 'Taladro Inalámbrico 18V',
+                icon: '⚡',
+                description: 'Potente taladro inalámbrico con batería de litio de 18V y 2Ah. Dos velocidades mecánicas, 20 posiciones de torque, LED de trabajo y maletín incluido. Perfecto para trabajos en madera, metal y plástico.',
+                features: [
+                    '• Batería de litio 18V 2Ah',
+                    '• 2 velocidades (0-450/0-1500 RPM)',
+                    '• 20 posiciones de torque',
+                    '• LED de trabajo integrado',
+                    '• Maletín plástico incluido'
+                ],
+                originalPrice: '$28.000',
+                discountPrice: '$21.000',
+                discount: '-25%',
+                stock: 'Más vendido'
+            },
+            'equipo-seguridad': {
+                title: 'Equipo de Seguridad Premium',
+                icon: '🪖',
+                description: 'Set completo de protección personal certificado. Casco de polietileno de alta densidad, guantes de nitrilo, gafas de seguridad anti-impacto y arnés de seguridad con amortiguación de impacto.',
+                features: [
+                    '• Casco certificado ANSI Z89.1',
+                    '• Guantes resistentes a químicos',
+                    '• Gafas con protección UV',
+                    '• Arnés regulable 4 puntos',
+                    '• Certificación OSHA'
+                ],
+                originalPrice: '$15.000',
+                discountPrice: '$9.000',
+                discount: '-40%',
+                stock: 'Nuevo'
+            },
+            'cimento-portland': {
+                title: 'Cemento Portland 50kg',
+                icon: '🏗️',
+                description: 'Cemento Portland de alta resistencia especialmente formulado para climas fríos. Ideal para construcciones en Ushuaia y zonas patagónicas. Cumple con normas IRAM 50000.',
+                features: [
+                    '• Alta resistencia al frío',
+                    '• Tiempo de fraguado controlado',
+                    '• Baja permeabilidad',
+                    '• Ideal para hormigón armado',
+                    '• Certificación IRAM'
+                ],
+                originalPrice: '$3.500',
+                discountPrice: '$2.800',
+                discount: '-20%',
+                stock: '3x2'
+            },
+            'pintura-exterior': {
+                title: 'Pintura Exterior Premium',
+                icon: '🎨',
+                description: 'Pintura acrílica exterior de alta durabilidad con protección UV y resistencia a la intemperie. Formulada para soportar las condiciones climáticas extremas de la Patagonia. Bajo contenido de VOC.',
+                features: [
+                    '• 20L de cobertura por unidad',
+                    '• Protección UV avanzada',
+                    '• Resistente al moho y hongos',
+                    '• Eco-friendly - bajo VOC',
+                    '• 10 años de garantía'
+                ],
+                originalPrice: '$12.000',
+                discountPrice: '$7.800',
+                discount: '-35%',
+                stock: 'Eco-friendly'
+            },
+            'kit-plomeria': {
+                title: 'Kit Plomería Completo',
+                icon: '🚰',
+                description: 'Set completo para instalaciones de plomería residencial. Incluye válvulas, conexiones de PVC y cobre, herramientas especializadas y manual de instalación paso a paso.',
+                features: [
+                    '• Válvulas de bronce 1/2" y 3/4"',
+                    '• Conexiones PVC y cobre',
+                    '• Cinta de teflón y selladores',
+                    '• Herramientas básicas incluidas',
+                    '• Manual de instalación'
+                ],
+                originalPrice: '$18.000',
+                discountPrice: '$15.300',
+                discount: '-15%',
+                stock: 'Hot Deal'
+            }
+        };
+
+        // Add click event listeners to offer cards "Ver Detalles" buttons only
+        document.querySelectorAll('.offer-card button').forEach((button, index) => {
+            button.addEventListener('click', function(e) {
+                e.preventDefault();
+                e.stopPropagation();
+                
+                const productKeys = Object.keys(products);
+                const productKey = productKeys[index];
+                const product = products[productKey];
+                
+                openOfferModal(product);
+            });
+        });
+
+        function openOfferModal(product) {
+            if (!offerModal || !modalContent) return;
+            
+            // Update modal content
+            document.getElementById('modalTitle').textContent = product.title;
+            document.getElementById('modalIcon').textContent = product.icon;
+            document.getElementById('modalDescription').textContent = product.description;
+            document.getElementById('modalOriginalPrice').textContent = product.originalPrice;
+            document.getElementById('modalDiscountPrice').textContent = product.discountPrice;
+            document.getElementById('modalDiscount').textContent = product.discount;
+            document.getElementById('modalStock').textContent = product.stock;
+            
+            // Update features list
+            const featuresList = document.getElementById('modalFeatures');
+            featuresList.innerHTML = product.features.map(feature => `<li>${feature}</li>`).join('');
+            
+            // Show modal with animation
+            offerModal.classList.remove('hidden');
+            setTimeout(() => {
+                modalContent.classList.remove('scale-95', 'opacity-0');
+                modalContent.classList.add('scale-100', 'opacity-100');
+            }, 10);
+            
+            // Prevent body scroll
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeOfferModal() {
+            if (!offerModal || !modalContent) return;
+            
+            // Hide modal with animation
+            modalContent.classList.remove('scale-100', 'opacity-100');
+            modalContent.classList.add('scale-95', 'opacity-0');
+            
+            setTimeout(() => {
+                offerModal.classList.add('hidden');
+                document.body.style.overflow = 'auto';
+            }, 300);
+        }
+
+        function addToCart() {
+            alert('Producto agregado al carrito. Funcionalidad de carrito en desarrollo.');
+            closeOfferModal();
+        }
+
+        function buyNow() {
+            alert('Redirigiendo al proceso de compra. Funcionalidad en desarrollo.');
+            closeOfferModal();
+        }
+
+        // Close modal when clicking outside
+        offerModal?.addEventListener('click', function(e) {
+            if (e.target === offerModal) {
+                closeOfferModal();
+            }
+        });
+
+        // Close modal with Escape key
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape' && !offerModal.classList.contains('hidden')) {
+                closeOfferModal();
+            }
+        });
+
+        // Scroll animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        // Observe all fade-in-up elements
+        document.querySelectorAll('.fade-in-up').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Add staggered animation to category cards
+        document.querySelectorAll('.category-card').forEach((card, index) => {
+            card.style.transitionDelay = `${index * 0.1}s`;
+            card.classList.add('fade-in-up');
+        });
+
+        // Add staggered animation to highlight items
+        document.querySelectorAll('.highlight-item').forEach((item, index) => {
+            item.style.transitionDelay = `${index * 0.1}s`;
+            item.classList.add('fade-in-up');
+        });
+
+        // Add staggered animation to offer cards
+        document.querySelectorAll('.offer-card').forEach((card, index) => {
+            card.style.transitionDelay = `${index * 0.1}s`;
+            card.classList.add('fade-in-up');
+        });
+
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Header shadow on scroll
+        window.addEventListener('scroll', () => {
+            const header = document.querySelector('header');
+            if (window.scrollY > 100) {
+                header.classList.add('shadow-xl');
+            } else {
+                header.classList.remove('shadow-xl');
+            }
+        });
+
+        // Parallax effect for hero section
+        window.addEventListener('scroll', () => {
+            const scrolled = window.pageYOffset;
+            const heroContent = document.querySelector('.hero-content');
+            
+            if (heroContent) {
+                heroContent.style.transform = `translateY(${scrolled * 0.5}px)`;
+                heroContent.style.opacity = 1 - (scrolled * 0.001);
+            }
+        });
+    </script>
+</body>
+</html>

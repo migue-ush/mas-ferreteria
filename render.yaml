@@ -1,0 +1,14 @@
+services:
+  # Static Site
+  - type: web
+    name: mas-ferreteria
+    env: static
+    buildCommand: echo "No build required for static site"
+    staticPublishPath: .
+    routes:
+      - type: rewrite
+        source: /*
+        destination: /index.html
+    envVars:
+      - key: NODE_VERSION
+        value: 14

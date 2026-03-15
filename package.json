@@ -1,0 +1,22 @@
+{
+  "name": "mas-ferreteria",
+  "version": "1.0.0",
+  "description": "Sitio web de Más Ferretería - Ushuaia, Tierra del Fuego",
+  "main": "index.html",
+  "scripts": {
+    "start": "python3 -m http.server 8000",
+    "dev": "python3 -m http.server 8000"
+  },
+  "keywords": [
+    "ferreteria",
+    "ushuaia",
+    "tierra-del-fuego",
+    "herramientas",
+    "construccion"
+  ],
+  "author": "Más Ferretería",
+  "license": "MIT",
+  "engines": {
+    "node": "14.x"
+  }
+}
