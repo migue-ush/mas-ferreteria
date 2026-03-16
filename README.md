@@ -1,13 +1,7 @@
-# Más Ferretería - Sitio Web
+# Más Ferretería - Sitio Web (test)
 
 Sitio web oficial de Más Ferretería, ubicada en Ushuaia, Tierra del Fuego, Argentina.
 
-## 📍 Información
-
-- **Dirección**: Magallanes 889, Ushuaia, Tierra del Fuego, Argentina
-- **Teléfono**: +54 2901 123456
-- **Email**: info@masferreteria.com.ar
-- **Horario**: Lunes a Viernes 8:00-18:00, Sábados 9:00-13:00
 
 ## 🚀 Despliegue
 
@@ -52,12 +46,6 @@ npm start
 - **Colores de marca**: Azul (#1E40AF), Amarillo (#FDE047), Blanco (#FFFFFF)
 - **Tipografía**: Bebas Neue (títulos), Inter (cuerpo)
 - **Estilo**: Industrial-utilitario con influencia patagónica
-
-## 📞 Contacto
-
-- 📱 WhatsApp: +54 9 2901 123456
-- 📧 Email: info@masferreteria.com.ar
-- 🌐 Web: masferreteria.com.ar
 
 ---
 
